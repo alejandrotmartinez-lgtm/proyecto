@@ -14,6 +14,7 @@ partsupp as (
 
 final as (
     select
+        {{ dbt_utils.generate_surrogate_key(['o.o_orderkey', 'l.l_linenumber']) }} as fact_order_line_key,
         o.o_orderkey as order_key,
         o.o_custkey as customer_key,
         l.l_partkey as part_key,
