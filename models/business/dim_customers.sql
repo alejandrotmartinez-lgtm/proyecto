@@ -30,4 +30,7 @@ final as (
 )
 
 select * from final
+<<<<<<< HEAD
+=======
 
+>>>>>>> 8ac8a23d8720e7446845b29d2d615bea2cfa9929

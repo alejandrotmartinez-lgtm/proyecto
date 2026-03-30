@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: dim_parts
+    description: "Dimensión de productos que contiene los atributos de estos."
+  - name: dim_suppliers
+    description: "Dimensión desnormalizada de proveedores."
+  - name: dim_customers
+    description: "Dimensión desnormalizada de clientes, construida sobre la capa de limpieza."
+  - name: dim_date
+    description: "Dimensión de calendario maestro generada dinámicamente."
+  - name: fct_orders
+    description: "Tabla de hechos transaccional a nivel de línea de pedido. Contiene las claves foráneas, fechas clave y métricas de negocio calculadas."
