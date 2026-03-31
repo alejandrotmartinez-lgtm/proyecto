@@ -7,3 +7,7 @@ packages:
     version: 0.17.2
   - package: tnightengale/dbt_meta_testing
     version: 0.3.6
+  - package: calogica/dbt_expectations
+    version: 0.10.4
+  - package: dbt-labs/audit_helper
+    version: 0.13.0
