@@ -1,0 +1,5 @@
+version: 2
+
+models:
+    - name: int_customers_cleaned
+      description: "Modelo intermedio que limpia y estandariza los datos."
