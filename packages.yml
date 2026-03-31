@@ -5,3 +5,5 @@ packages:
     revision: main
   - package: godatadriven/dbt_date
     version: 0.17.2
+  - package: tnightengale/dbt_meta_testing
+    version: 0.3.6
