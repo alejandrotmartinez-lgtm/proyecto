@@ -54,3 +54,6 @@ models:
     business:
       +materialized: table
       +schema: business
+
+  dbt_project_evaluator:
+    +schema: dbt_project_evaluator
