@@ -1,0 +1,49 @@
+version: 2
+
+snapshots:
+  - name: scd_customer
+    description: >
+      Tabla histórica  para realizar un seguimiento de los cambios en los atributos de los clientes (dirección, teléfono, balance y segmento).    columns:
+      - name: dbt_scd_id
+        description: Clave única generada por dbt para este registro histórico específico.
+        data_tests:
+          - unique
+          - not_null
+      - name: C_CUSTKEY
+        description: Clave natural del cliente.
+      - name: dbt_valid_from
+        description: Fecha y hora en la que esta versión del registro del cliente pasó a ser válida.
+      - name: dbt_valid_to
+        description: Fecha y hora en la que esta versión caducó. Si es nulo, indica que es el registro activo actual.
+
+  - name: scd_part
+    description: >
+      Tabla histórica para realizar un seguimiento de los cambios en los atributos de los productos (precio retail, fabricante y marca).
+    columns:
+      - name: dbt_scd_id
+        description: Clave única generada por dbt para este registro histórico específico.
+        data_tests:
+          - unique
+          - not_null
+      - name: P_PARTKEY
+        description: Clave natural del producto.
+      - name: dbt_valid_from
+        description: Fecha y hora en la que esta versión del registro pasó a ser válida.
+      - name: dbt_valid_to
+        description: Fecha y hora en la que esta versión caducó. Si es nulo, indica que es el registro activo actual.
+
+  - name: scd_supplier
+    description: >
+      Tabla histórica para realizar un seguimiento de los cambios en los atributos de los proveedores (dirección, teléfono y balance).
+    columns:
+      - name: dbt_scd_id
+        description: Clave única generada por dbt para este registro histórico específico.
+        data_tests:
+          - unique
+          - not_null
+      - name: S_SUPPKEY
+        description: Clave natural del proveedor.
+      - name: dbt_valid_from
+        description: Fecha y hora en la que esta versión del registro pasó a ser válida.
+      - name: dbt_valid_to
+        description: Fecha y hora en la que esta versión caducó. Si es nulo, indica que es el registro activo actual.
