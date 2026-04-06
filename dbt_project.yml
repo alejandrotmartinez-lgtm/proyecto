@@ -43,6 +43,9 @@ tests:
 
 models:
   proyecto_final:
+    +grants:
+      select: ['PUBLIC']
+
     staging:
       +materialized: table
       +schema: staging 
