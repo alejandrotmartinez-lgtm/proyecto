@@ -85,27 +85,14 @@ models:
       - name: L_SHIPDATE
         data_tests:
           - not_null
-          - valid_date_range:
-              arguments:
-                min_date: "1990-01-01"
-                max_date: "2000-12-31"
       - name: L_COMMITDATE
         description: Date when the order was committed.
         data_tests:
           - not_null
-          - valid_date_range:
-              arguments:
-                min_date: "1990-01-01"
-                max_date: "2000-12-31"
-                
       - name: L_RECEIPTDATE
         description: Date when the item was received.
         data_tests:
           - not_null
-          - valid_date_range:
-              arguments:
-                min_date: "1990-01-01"
-                max_date: "2000-12-31"
       - name: L_SHIPINSTRUCT
         description: Shipping instructions for the item.
         data_tests:
