@@ -1,5 +1,10 @@
 version: 2
 
 models:
-    - name: int_customers_cleaned
-      description: "Modelo intermedio que limpia y estandariza los datos."
+  - name: int_customers_cleaned
+    description: "Modelo intermedio que limpia y estandariza los datos."
+    columns:
+      - name: C_CUSTKEY
+        data_tests:
+          - unique
+          - not_null

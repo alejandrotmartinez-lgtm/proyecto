@@ -5,9 +5,9 @@ packages:
 - git: https://github.com/dbt-labs/dbt-codegen.git
   name: codegen
   revision: c4d495b8bb27a1448146dd7c928c56d95003c6f0
-- package: calogica/dbt_date
+- package: godatadriven/dbt_date
   name: dbt_date
-  version: 0.10.1
+  version: 0.17.2
 - package: calogica/dbt_expectations
   name: dbt_expectations
   version: 0.10.4
