@@ -1,0 +1,55 @@
+version: 2
+
+sources:
+  - name: tpch
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCH_SF1
+    description: "Base de datos de ejemplo TPC-H proporcionada por Snowflake para pruebas de rendimiento y modelado dimensional."
+    
+    tables:
+      - name: customer
+        description: "Datos maestros de clientes, incluyendo segmentación de mercado y balance de cuentas."
+        columns:
+          - name: C_CUSTKEY
+            data_tests:
+              - unique
+              - not_null
+      - name: orders
+        description: "Registros de pedidos realizados por los clientes, incluyendo el estado del pedido y el precio total."
+        columns:
+          - name: O_ORDERKEY
+            data_tests:
+              - unique
+              - not_null
+      - name: lineitem
+        description: "Detalle de cada partida o artículo contenido en los pedidos. Es la tabla con mayor granularidad."
+      - name: part
+        description: "Catálogo de piezas o productos disponibles para la venta."
+        columns:
+          - name: P_PARTKEY
+            data_tests:
+              - unique
+              - not_null
+      - name: supplier
+        description: "Información sobre los proveedores que suministran las piezas."
+        columns:
+          - name: S_SUPPKEY
+            data_tests:
+              - unique
+              - not_null
+      - name: partsupp
+        description: "Tabla de relación que vincula piezas con sus respectivos proveedores y costes de suministro."
+      - name: nation
+        description: "Catálogo de naciones para el análisis geográfico de clientes y proveedores."
+        columns:
+          - name: N_NATIONKEY
+            data_tests:
+              - unique
+              - not_null
+      - name: region
+        description: "Agrupación de naciones por regiones geográficas (continentes)."
+        columns:
+          - name: R_REGIONKEY
+            data_tests:
+              - unique
+              - not_null
