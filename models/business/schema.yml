@@ -29,7 +29,7 @@ models:
   - name: dim_date
     description: "Dimensión de calendario maestro que permite filtrar y agrupar métricas por periodos temporales (año, mes, trimestre, etc.)."
     columns:
-      - name: DATE_KEY 
+      - name: DATE_ID
         description: "Clave primaria de la dimensión tiempo. Una fila por cada día."
         data_tests:
           - unique

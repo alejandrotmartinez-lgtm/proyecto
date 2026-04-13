@@ -9,7 +9,7 @@ config-version: 2
 profile: 'default'
 
 vars:
-  # exclude_packages: ["all"]
+  exclude_packages: ["all"]
   intermediate_folder_name: 'transformation'
   marts_folder_name: 'business'
 
