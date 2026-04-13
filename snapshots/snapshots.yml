@@ -3,7 +3,8 @@ version: 2
 snapshots:
   - name: scd_customer
     description: >
-      Tabla histórica  para realizar un seguimiento de los cambios en los atributos de los clientes (dirección, teléfono, balance y segmento).    columns:
+      Tabla histórica  para realizar un seguimiento de los cambios en los atributos de los clientes (dirección, teléfono, balance y segmento).    
+    columns:
       - name: dbt_scd_id
         description: Clave única generada por dbt para este registro histórico específico.
         data_tests:

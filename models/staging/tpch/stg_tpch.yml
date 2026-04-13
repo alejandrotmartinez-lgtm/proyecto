@@ -1,3 +1,4 @@
+version: 2
 models:
   - name: stg_tpch__customer
     description: This model provides detailed information about customers, including their unique identifier, name, address, associated nation, contact information, account balance, market segment, and additional comments. It is used to manage and analyze customer data within the TPCH dataset.
@@ -87,6 +88,7 @@ models:
         data_tests:
           - not_null
       - name: L_SHIPDATE
+        description: "Fecha en la que se envió el artículo o línea de pedido correspondiente al cliente."
         data_tests:
           - not_null
       - name: L_COMMITDATE
@@ -147,10 +149,11 @@ models:
         data_tests:
           - not_null
       - name: O_ORDERSTATUS
+        description: Estado del Pedido
         data_tests:
           - not_null
           - accepted_values:
-              arguments: 
+              arguments:
                 values: ['O', 'F', 'P']
       - name: O_TOTALPRICE
         description: Total price of the order.
