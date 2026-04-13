@@ -36,9 +36,14 @@ models:
           - not_null
 
   - name: fct_orders
+<<<<<<< HEAD
+    description: "Tabla de hechos transaccional a nivel de línea de pedido. Contiene las claves foráneas, fechas clave y métricas de negocio calculadas."
+  
+=======
     description: "Tabla de hechos transaccional a nivel de línea de pedido."
     columns:
       - name: FACT_ORDER_LINE_KEY
         data_tests:
           - unique
           - not_null
+>>>>>>> 9d77d4d912cf1e2f95e6b7a7293fffeb774e1069

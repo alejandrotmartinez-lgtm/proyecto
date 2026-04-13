@@ -8,11 +8,14 @@ config-version: 2
 # This setting configures which "profile" dbt uses for this project.
 profile: 'default'
 
+<<<<<<< HEAD
+=======
 vars:
   "dbt_date:time_zone": "America/New_York"
   exclude_packages: ["all"]
   intermediate_folder_name: 'transformation'
   marts_folder_name: 'business'
+>>>>>>> 9d77d4d912cf1e2f95e6b7a7293fffeb774e1069
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
