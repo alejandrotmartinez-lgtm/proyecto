@@ -11,3 +11,4 @@ models:
     description: "Dimensión de calendario maestro generada dinámicamente."
   - name: fct_orders
     description: "Tabla de hechos transaccional a nivel de línea de pedido. Contiene las claves foráneas, fechas clave y métricas de negocio calculadas."
+  
