@@ -51,14 +51,17 @@ models:
 
     staging:
       +materialized: table
+      +tags: ["daily", "carga_staging"]
       +schema: staging 
     
     transformation:
       +materialized: view
+      +tags: ["daily", "carga_transformation"]
       +schema: transformation
       
     business:
       +materialized: table
+      +tags: ["weekly", "carga_business"]
       +schema: business
 
   dbt_project_evaluator:
