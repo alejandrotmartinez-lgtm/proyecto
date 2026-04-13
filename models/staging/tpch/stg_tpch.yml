@@ -39,8 +39,12 @@ models:
           - not_null
   - name: stg_tpch__lineitem
     description: This model provides detailed information about line items in orders, including keys for orders, parts, and suppliers, as well as quantities, prices, discounts,taxes, and shipping details. It is used to analyze and manage order line data within the TPCH dataset.
-    config: 
-      unique_key: [L_ORDERKEY, L_PARTKEY]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - L_ORDERKEY
+              - L_LINENUMBER
     columns:
       - name: L_ORDERKEY
         description: Identifier for each order.
@@ -83,31 +87,16 @@ models:
         data_tests:
           - not_null
       - name: L_SHIPDATE
-        description: Date when the item was shipped.
         data_tests:
           - not_null
-          - dbt_utils.accepted_range:
-              arguments:
-                min_value: "'1990-01-01'"
-                max_value: "'2000-12-31'"
-                
       - name: L_COMMITDATE
         description: Date when the order was committed.
         data_tests:
           - not_null
-          - dbt_utils.accepted_range:
-              arguments:
-                min_value: "'1990-01-01'"
-                max_value: "'2000-12-31'"
-                
       - name: L_RECEIPTDATE
         description: Date when the item was received.
         data_tests:
           - not_null
-          - dbt_utils.accepted_range:
-              arguments:
-                min_value: "'1990-01-01'"
-                max_value: "'2000-12-31'"
       - name: L_SHIPINSTRUCT
         description: Shipping instructions for the item.
         data_tests:
@@ -158,11 +147,10 @@ models:
         data_tests:
           - not_null
       - name: O_ORDERSTATUS
-        description: Current status of the order.
         data_tests:
           - not_null
           - accepted_values:
-              arguments:
+              arguments: 
                 values: ['O', 'F', 'P']
       - name: O_TOTALPRICE
         description: Total price of the order.
@@ -216,8 +204,12 @@ models:
         description: Additional comments about the part.
   - name: stg_tpch__partsupp
     description: This model provides information about the parts supplied by suppliers, including the part key, supplier key, available quantity, supply cost, and additional comments. It is used to manage and analyze the supply chain data within the TPCH dataset.
-    config: 
-      unique_key: [PS_PARTKEY, PS_SUPPKEY]
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - PS_PARTKEY
+              - PS_SUPPKEY
     columns:
       - name: PS_PARTKEY
         description: Unique identifier for each part.

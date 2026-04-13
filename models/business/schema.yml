@@ -3,12 +3,47 @@ version: 2
 models:
   - name: dim_parts
     description: "Dimensión de productos que contiene los atributos de estos."
+    columns:
+      - name: PART_KEY
+        data_tests:
+          - unique
+          - not_null
+
   - name: dim_suppliers
     description: "Dimensión desnormalizada de proveedores."
+    columns:
+      - name: SUPPLIER_KEY
+        data_tests:
+          - unique
+          - not_null
+
   - name: dim_customers
-    description: "Dimensión desnormalizada de clientes, construida sobre la capa de limpieza."
+    description: "Dimensión maestra de clientes. Proporciona una vista 360º del cliente, incluyendo su ubicación geográfica (Nación/Región) y segmentación de mercado."
+    columns:
+      - name: CUSTOMER_KEY 
+        description: "Clave primaria única de la dimensión cliente."
+        data_tests:
+          - unique
+          - not_null
+
   - name: dim_date
-    description: "Dimensión de calendario maestro generada dinámicamente."
+    description: "Dimensión de calendario maestro que permite filtrar y agrupar métricas por periodos temporales (año, mes, trimestre, etc.)."
+    columns:
+      - name: DATE_KEY 
+        description: "Clave primaria de la dimensión tiempo. Una fila por cada día."
+        data_tests:
+          - unique
+          - not_null
+
   - name: fct_orders
+<<<<<<< HEAD
     description: "Tabla de hechos transaccional a nivel de línea de pedido. Contiene las claves foráneas, fechas clave y métricas de negocio calculadas."
   
+=======
+    description: "Tabla de hechos transaccional a nivel de línea de pedido."
+    columns:
+      - name: FACT_ORDER_LINE_KEY
+        data_tests:
+          - unique
+          - not_null
+>>>>>>> 9d77d4d912cf1e2f95e6b7a7293fffeb774e1069
