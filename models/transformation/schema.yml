@@ -5,6 +5,7 @@ models:
     description: "Modelo intermedio que limpia y estandariza los datos."
     columns:
       - name: C_CUSTKEY
+        description: Clave primaria del customer
         data_tests:
           - unique
           - not_null
