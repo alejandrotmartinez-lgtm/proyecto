@@ -11,16 +11,53 @@ sources:
         description: "Datos maestros de clientes, incluyendo segmentación de mercado y balance de cuentas."
         columns:
           - name: C_CUSTKEY
+            description: "Identificador único del cliente." 
             data_tests:
               - unique
               - not_null
+          - name: C_NAME
+            description: "Nombre completo del cliente." 
+          - name: C_ADRESS
+            description: "Dirección física del cliente."
+          - name: C_NATIONKEY
+            description: "Clave foránea de la nación del cliente."
+          - name: C_PHONE
+            description: "Número de contacto telefónico."
+          - name: C_ACCTBAL
+            description: "Saldo actual de la cuenta del cliente."
+          - name: C_MKTSEGMENT
+            description: "Segmento de mercado al que pertenece el cliente."
+          - name: C_COMMENT
+            description: "Comentarios generales del cliente."
       - name: orders
         description: "Registros de pedidos realizados por los clientes, incluyendo el estado del pedido y el precio total."
+        config: 
+          loaded_at_field: "cast(o_orderdate as timestamp)"
+          freshness: 
+            warn_after: {count: 365, period: day}
+            error_after: {count: 50000, period: day}
         columns:
           - name: O_ORDERKEY
+            description: "Clave primaria de la orden." 
             data_tests:
               - unique
               - not_null
+          - name: O_ORDERDATE
+            description: "Fecha en la que se realizó el pedido." 
+          - name: O_CUSTKEY
+            description: "Clave foránea que referencia al cliente que realizó el pedido."
+          - name: O_ORDERSTATUS
+            description: "Estado actual de la orden (F, O, P)."
+          - name: O_TOTALPRICE
+            description: "Precio total de la orden incluyendo impuestos."
+          - name: O_ORDERPRIORITY
+            description: "Prioridad asignada a la orden."
+          - name: O_CLERK
+            description: "Identificador del empleado que procesó la orden."
+          - name: O_SHIPPRIORITY
+            description: "Prioridad de envío."
+          - name: O_COMMENT
+            description: "Comentarios adicionales de la orden."
       - name: lineitem
         description: "Detalle de cada partida o artículo contenido en los pedidos. Es la tabla con mayor granularidad."
       - name: part
@@ -43,9 +80,13 @@ sources:
         description: "Catálogo de naciones para el análisis geográfico de clientes y proveedores."
         columns:
           - name: N_NATIONKEY
+            description: "Clave foránea que referencia a la nación." 
             data_tests:
               - unique
               - not_null
+          - name: N_NAME
+            description: "Nombre de la nación." 
+
       - name: region
         description: "Agrupación de naciones por regiones geográficas (continentes)."
         columns:
@@ -53,3 +94,6 @@ sources:
             data_tests:
               - unique
               - not_null
+          - name: R_NAME
+            description: "Nombre de la región."
+
