@@ -4,7 +4,7 @@ packages:
   - git: https://github.com/dbt-labs/dbt-codegen.git
     revision: main
   - package: tnightengale/dbt_meta_testing
-    version: 0.3.6
+    version: 0.4.0
   - package: calogica/dbt_expectations
     version: 0.10.4
   - package: dbt-labs/audit_helper
